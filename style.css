@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f172a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.moon-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 40px;
+}
+
+.crescent-moon {
+    width: 250px;
+    height: 250px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    animation: circleScale 1.5s ease forwards;
+}
+
+.crescent-moon::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -250px;
+    width: 210px;
+    height: 210px;
+    background: #0f172a;
+    border-radius: 50%;
+    animation: cutToMoon 2s 1.5s ease forwards;
+}
+
+.mosque {
+    position: absolute;
+    bottom: 49px;
+    right: 60px;
+    z-index: 2;
+    transform: scale(1.2);
+    transform-origin: bottom right;
+    opacity: 0;
+    animation: fadeInMosque 1.5s 3.5s ease forwards;
+}
+
+.dome {
+    width: 48px;
+    height: 24px;
+    background: white;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    margin: 0 auto;
+}
+
+.dome::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 7.2px;
+    height: 7.2px;
+    border: 1.2px solid white;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.building {
+    width: 72px;
+    height: 42px;
+    background: white;
+    margin: 0 auto;
+    position: relative;
+}
+
+.door {
+    width: 12px;
+    height: 18px;
+    background: #0f172a;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px 6px 0 0;
+}
+
+.minaret {
+    width: 9.6px;
+    height: 60px;
+    background: white;
+    position: absolute;
+    right: -14.4px;
+    top: 0px;
+}
+
+.minaret::before {
+    content: '';
+    position: absolute;
+    top: -7.2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14.4px;
+    height: 7.2px;
+    background: white;
+    border-radius: 12px 12px 0 0;
+}
+
+.minaret::after {
+    content: '';
+    position: absolute;
+    top: -10.8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 4.8px;
+    height: 4.8px;
+    border: 1.2px solid white;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.minaret-bands {
+    position: absolute;
+    width: 12px;
+    height: 1.2px;
+    background: white;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.band1 {
+    top: 14.4px;
+}
+
+.band2 {
+    top: 30px;
+}
+
+.band3 {
+    top: 45.6px;
+}
+
+.greeting {
+    color: gold;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.greeting span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLetter 0.5s ease forwards;
+}
+
+.greeting span:nth-child(1) {
+    animation-delay: 5s;
+}
+
+.greeting span:nth-child(2) {
+    animation-delay: 5.2s;
+}
+
+.greeting span:nth-child(3) {
+    animation-delay: 5.4s;
+}
+
+.greeting span:nth-child(4) {
+    animation-delay: 5.6s;
+}
+
+.greeting span:nth-child(5) {
+    animation-delay: 5.8s;
+}
+
+.greeting span:nth-child(6) {
+    animation-delay: 6s;
+}
+
+.greeting span:nth-child(7) {
+    animation-delay: 6.2s;
+}
+
+.greeting span:nth-child(8) {
+    animation-delay: 6.4s;
+}
+
+.greeting span:nth-child(9) {
+    animation-delay: 6.6s;
+}
+
+.greeting span:nth-child(10) {
+    animation-delay: 6.8s;
+}
+
+@keyframes circleScale {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes cutToMoon {
+    0% {
+        right: -250px;
+    }
+
+    100% {
+        right: -10px;
+    }
+}
+
+@keyframes fadeInMosque {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLetter {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.restart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: gold;
+    color: #0f172a;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s;
+    z-index: 999;
+}
